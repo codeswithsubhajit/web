@@ -1,0 +1,38 @@
+.mainBanner{
+    width: 100%;
+    height: 550px;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  
+  .swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+    /* background: red; */
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    /* color: red; */
+}
+
+@media(max-width:600px){
+    .mainBanner{
+        width: 100%;
+        height: 180px;
+    }
+}
+@media(max-width:768px){
+    .mainBanner{
+        width: 100%;
+        height: 200px;
+    }
+}

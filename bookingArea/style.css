@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.demo{
+    width: 100%;
+    height: 300px;
+    background-color: lightseagreen;
+    position: relative;
+}
+
+
+
+
+.mainSelectionArea{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom:  0%;
+    transform: translate(-50%,60%);
+}
+.selectionArea{
+    width: 70%;
+    padding: 20px 20px;
+    border: 2px solid red;
+    background-color: bisque;
+    border-radius: 5px;
+
+}
+.selectionArea form{
+    display: flex;
+    gap: 5px;
+}
+
+.selectionItem{
+    width: 100%;
+    padding: 5px;
+}
+
+.selectionItem select, input{
+    width: 100%;
+    padding: 10px 15px;
+    outline: none;
+    border: 2px solid;
+    border-radius: 3px;
+    background-color: rgb(81, 105, 104);
+    color: #fff;
+    cursor: pointer;
+}
+
+
+/* responsive design */
+
+
+
+
+@media(max-width:600px){
+    .selectionArea form{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .selectionItem{
+        width: 100%;
+    }
+}
+
+@media(max-width:480px){
+    .selectionArea form{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .selectionItem{
+        width: 100%;
+    }
+}
