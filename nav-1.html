@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .navbar-nav > .nav-item > .nav-link {
+            color: white !important;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand img {
+            max-height: 40px;
+        }
+        .dropdown-menu {
+            background-color: #343a40;
+        }
+        .dropdown-menu .dropdown-item {
+            color: white !important;
+        }
+
+
+        /* new Navbar */
+@media (min-width: 992px) {
+    .navbar-nav .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+  }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="Logo" class="img-responsive"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul id="navbarItems">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about-us.php">About Us</a></li>
+                <li>
+                    <a href="#">Services</a>
+                    <ul>
+                        <li><a href="#">Domestic & International Air Ticket</a></li>
+                        <li><a href="#">Domestic & International Package Tours</a></li>
+                        <li><a href="#">Instant Hotel & Resort Booking</a></li>
+                        <li><a href="#">LTC for India & Abroad</a></li>
+                        <li><a href="#">Mice Movement</a></li>
+                        <li><a href="#">Passport & Visa Assistance</a></li>
+                        <li><a href="#">Organising Foreign Exchange</a></li>
+                        <li><a href="#">Car Rentals</a></li>
+                        <li><a href="#">Travel Consultancy</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Tour Packages</a>
+                    <ul>
+                        <li><a href="domestic-packages.php">Domestic Packages</a></li>
+                        <li><a href="#">International Packages</a></li>
+                        <li><a href="#">Ltc Packages</a></li>
+                        <li><a href="#">Honeymoon Packages</a></li>
+                        <li><a href="#">Adventure Tour</a></li>
+                        <li><a href="#">Week End Getaway</a></li>
+                        <li><a href="#">Wild Life Tour</a></li>
+                        <li><a href="#">Essence Of Greece And Italy</a></li>
+                        <li><a href="#">Delightful Greece</a></li>
+                        <li><a href="#">From Italy To Eastern Europe</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.php">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function() {
+        // Add classes to the <nav> element
+        $('.navbar').addClass('navbar-expand-lg navbar-dark bg-dark');
+
+        // Add classes to the <ul> element
+        $('#navbarItems').addClass('navbar-nav ml-auto');
+
+        // Add classes to the <li> elements
+        $('#navbarItems > li').each(function() {
+            $(this).addClass('nav-item');
+        });
+
+        // Add classes to the <a> elements
+        $('#navbarItems > li > a').each(function() {
+            $(this).addClass('nav-link');
+        });
+
+        // Add classes to the dropdown elements
+        $('#navbarItems > li:has(ul)').each(function() {
+            $(this).addClass('nav-item dropdown');
+            $(this).children('a').addClass('nav-link dropdown-toggle').attr('data-toggle', 'dropdown');
+            $(this).children('ul').addClass('dropdown-menu bg-dark');
+            $(this).children('ul').children('li').children('a').addClass('dropdown-item text-white');
+        });
+
+        // Toggle dropdown on click for mobile devices
+        $('.navbar-toggler').click(function() {
+            $('.dropdown').off('mouseenter mouseleave');
+            $('.dropdown-toggle').off('click').on('click', function(e) {
+                e.preventDefault();
+                var $el = $(this).next('.dropdown-menu');
+                var isVisible = $el.is(':visible');
+                $('.dropdown-menu').not($el).slideUp();
+                $el.stop(true, true).slideToggle(!isVisible);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
